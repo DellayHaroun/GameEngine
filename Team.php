@@ -1,5 +1,6 @@
 <?php
 require_once 'Player.php';
+require_once 'GameEngine.php';
 /**
  * Created by PhpStorm.
  * User: haroun
@@ -11,7 +12,7 @@ class Team
 {
     private $name;
     private $players = array();
-    private $firsthalf = true;
+
     private $goalsFirstHalf = 0;
     private $goalsSecondHalf = 0;
 
@@ -29,21 +30,6 @@ class Team
         return $this->name;
     }
 
-    /**
-     * @return boolean
-     */
-    public function isFirsthalf()
-    {
-        return $this->firsthalf;
-    }
-
-    /**
-     * @param boolean $firsthalf
-     */
-    public function setFirsthalf($firsthalf)
-    {
-        $this->firsthalf = $firsthalf;
-    }
 
 
     /**
@@ -115,8 +101,9 @@ class Team
 
     public function moreGoals()
     {
-        if ($firsthalf=true) {
-            $this->_goalsFirstHalf++;
+        if ($firstHa=true) {
+            
+            $this->$goalsFirstHalf++;
         } else {
             $this->_goalsSecondHalf++;
         }
@@ -127,7 +114,7 @@ class Team
     public function lessGoals()
     {
         if ($this->_goals > 0)
-            if ($firsthalf=true) {
+            if ($firstHa=true) {
                 $this->_goalsFirstHalf++;
             } else {
                 $this->_goalsSecondHalf++;
@@ -137,6 +124,6 @@ class Team
     }
 
 }
-
-
+$game=new GameEngine();
+$firstHa=$game->isFirsthalf();
 
