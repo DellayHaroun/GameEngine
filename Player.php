@@ -1,5 +1,5 @@
 <?php
-public class player
+public class Player
 {
     public $id ;
     public $defencePower ;

@@ -1,7 +1,5 @@
 <?php
 require_once 'Player.php';
-require_once 'firstHalfResult.php';
-require_once 'secondHalfResult.php';
 /**
  * Created by PhpStorm.
  * User: haroun
@@ -10,7 +8,7 @@ require_once 'secondHalfResult.php';
  */
 public
 
-class team
+class Team
 {
     private $name;
     private $players = array();
@@ -101,7 +99,7 @@ class team
     /******Setter+Getter*****/
 
 
-    public function addPlayer($player, $players)
+    public function addPlayer($player->, $players)
     {
         $x = boolval(in_array($player->id, [$player]));
         if (!x) {
