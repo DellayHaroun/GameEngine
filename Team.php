@@ -6,7 +6,6 @@ require_once 'Player.php';
  * Date: 29/07/15
  * Time: 15:46
  */
-public
 
 class Team
 {
@@ -15,7 +14,7 @@ class Team
     private $firsthalf = true;
     private $goalsFirstHalf = 0;
     private $goalsSecondHalf = 0;
-   
+
 
 
     /******Setter+Getter*****/
@@ -102,28 +101,21 @@ class Team
     /******Setter+Getter*****/
 
 
-    public function addPlayer($player->, $players)
+    public function addPlayer(Player $player)
     {
-        $x = boolval(in_array($player->id, [$player]));
-        if (!x) {
-
-
-                    array_push($players ,"$player->id","$player->defencePower","$player->attackPower");
-
-                }
-
+        $this->players[$player->getId()] = $player ;
     }
 
 
-    public function deletePlayer($player, $players)
+    public function deletePlayer(Player $player)
     {
-        unset($players[$player->id]);
+        unset($this->players[$player->getId()] );
     }
 
 
     public function moreGoals()
     {
-        if ($firsthalf) {
+        if ($firsthalf=true) {
             $this->_goalsFirstHalf++;
         } else {
             $this->_goalsSecondHalf++;
@@ -135,7 +127,7 @@ class Team
     public function lessGoals()
     {
         if ($this->_goals > 0)
-            if ($firsthalf) {
+            if ($firsthalf=true) {
                 $this->_goalsFirstHalf++;
             } else {
                 $this->_goalsSecondHalf++;
