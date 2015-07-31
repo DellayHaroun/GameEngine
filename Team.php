@@ -15,9 +15,13 @@ class Team
     private $firsthalf = true;
     private $goalsFirstHalf = 0;
     private $goalsSecondHalf = 0;
+    private $nblignes=5;
+    private $nbcolonnes=3;
 
 
     /******Setter+Getter*****/
+
+
 
     /**
      * @return mixed
@@ -103,9 +107,11 @@ class Team
     {
         $x = boolval(in_array($player->id, [$player]));
         if (!x) {
-            array_push($players ,"$player->id","$player->defencePower","$player->attackPower");
+                
 
-        }
+                    array_push($players ,"$player->id","$player->defencePower","$player->attackPower");
+
+                }
 
     }
 
