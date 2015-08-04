@@ -51,6 +51,6 @@ $team1->moreGoals();
 
 if($team1->getGoalsFirstHalf()+$team1->getGoalsSecondHalf()>$team2->getGoalsSecondHalf()+$team2->getGoalsSecondHalf())
 {
-    echo "Team1 has won";
+    echo 'Team1 has won and the score is  team 1 :', $team1->getGoalsSecondHalf(),' team 2:' ,$team2->getGoalsSecondHalf() ;
 }
-else echo "Team 2 has won ";
+else echo 'Team1 has won and the score is  team 1 :', $team1->getGoalsSecondHalf(),' team 2:' ,$team2->getGoalsSecondHalf();

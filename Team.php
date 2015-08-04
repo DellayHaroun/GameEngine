@@ -101,13 +101,14 @@ class Team
 
     public function moreGoals()
     {
+        $goalsFirstHalf =0;
+        $goalsSecondHalf =0;
         if ($firstHalf=true) {
 
             /** @var TYPE_NAME $goalsFirstHalf */
-            $goalsFirstHalf =0;
-                $this->$goalsFirstHalf++;
+            $goalsFirstHalf++;
         } else {
-            $this->_goalsSecondHalf++;
+            $goalsSecondHalf++;
         }
 
 
