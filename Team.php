@@ -13,18 +13,11 @@ class Team
     private $name;
     private $players = array();
 
-    private $goalsFirstHalf = 0;
-    private $goalsSecondHalf = 0;
 
 
 
-    /******Setter+Getter*****/
 
 
-
-    /**
-     * @return mixed
-     */
     public function getName()
     {
         return $this->name;
@@ -32,59 +25,17 @@ class Team
 
 
 
-    /**
-     * @return int
-     */
-    public function getGoalsFirstHalf()
-    {
-        return $this->goalsFirstHalf;
-    }
-
-    /**
-     * @param int $goalsFirstHalf
-     */
-    public function setGoalsFirstHalf($goalsFirstHalf)
-    {
-        $this->goalsFirstHalf = $goalsFirstHalf;
-    }
-
-    /**
-     * @return int
-     */
-
-    public function getGoalsSecondHalf()
-    {
-        return $this->goalsSecondHalf;
-    }
-
-    /**
-     * @param int $goalsSecondHalf
-     */
-    public function setGoalsSecondHalf($goalsSecondHalf)
-    {
-        $this->goalsSecondHalf = $goalsSecondHalf;
-    }
-
-    /**
-     *
-     */
-    /**
-     * @param mixed $name
-     */
     public function setName($name)
     {
         $this->name = $name;
     }
 
-    /**
-     * @return array
-     */
+
     public function getPlayers()
     {
         return $this->players;
     }
 
-    /******Setter+Getter*****/
 
 
     public function addPlayer(Player $player)
@@ -99,34 +50,29 @@ class Team
     }
 
 
-    public function moreGoals()
+    public function teamAttackPower()
     {
-        $goalsFirstHalf =0;
-        $goalsSecondHalf =0;
-        if ($firstHalf=true) {
+        $x =0;
 
-            /** @var TYPE_NAME $goalsFirstHalf */
-            $goalsFirstHalf++;
-        } else {
-            $goalsSecondHalf++;
+        foreach($this->players as $Player)
+        {
+            $x += $Player->getAttackPower();
         }
-
-
+        return $x ;
     }
 
-    public function lessGoals()
+
+    public function teamDefencePower()
     {
-        if ($this->_goals > 0)
-            if ($firstHa=true) {
-                $this->_goalsFirstHalf++;
-            } else {
-                $this->_goalsSecondHalf++;
-            }
 
+        $x =0;
 
+        foreach($this->players as $Player)
+        {
+            $x += $Player->getDefencePower();
+        }
+        return $x ;
     }
+
 
 }
-$game=new GameEngine();
-$firstHa=$game->isFirsthalf();
-

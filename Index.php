@@ -13,7 +13,7 @@ require_once 'GameEngine.php';
 
 
 $gameEngine=new GameEngine();
-$gameEngine->startGame();
+
 
 $zidane=new Player(1,20,99);
 $ronaldo=new Player(2,20,98);
@@ -31,6 +31,8 @@ $team1->addPlayer($ronaldinho);
 
 
 
+
+
 $zidane2=new Player(6,21,98);
 $ronaldo2=new Player(7,21,97);
 $ronaldinho2=new Player(8,16,101);
@@ -44,13 +46,11 @@ $team2->addPlayer($ronaldo2);
 $team2->addPlayer($bartez2);
 $team2->addPlayer($cafu2);
 
-$team1->moreGoals();
-$team1->moreGoals();
 
 
 
-if($team1->getGoalsFirstHalf()+$team1->getGoalsSecondHalf()>$team2->getGoalsSecondHalf()+$team2->getGoalsSecondHalf())
+echo 'The Final score is ',rand(0,$gameEngine->maxGoalFirstTeam()) +2,'_',rand(0,$gameEngine->maxGoalSecondTeam()+2)  ;
+if($gameEngine->maxGoalSecondTeam()>$gameEngine->maxGoalSecondTeam())
 {
-    echo 'Team1 has won and the score is  team 1 :', $team1->getGoalsSecondHalf(),' team 2:' ,$team2->getGoalsSecondHalf() ;
+    
 }
-else echo 'Team1 has won and the score is  team 1 :', $team1->getGoalsSecondHalf(),' team 2:' ,$team2->getGoalsSecondHalf();
