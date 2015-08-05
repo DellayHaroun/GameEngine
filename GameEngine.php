@@ -18,6 +18,12 @@ class GameEngine{
     private $goalsFirstHalfSecondTeam = 0;
     private $goalsSecondHalfSecondTeam = 0;
 
+    public function __construct(Team $home, Team $away)
+    {
+        $this->setAwayTeam($away);
+        $this->setHomeTeam($home);
+    }
+
     /**
      * @return mixed
      */
@@ -132,19 +138,55 @@ class GameEngine{
     }
 
 
-
-
-    public function maxGoalFirstTeam()
-    {   $team1 =new Team();
-        $team2 =new Team();
-        return($team1->teamAttackPower() - $team2->teamDefencePower());
+    public function getAttackAdventageOfHomeTeam()
+    {
+        return($this->getHomeTeam()->getAttackPower() - $this->getAwayTeam()->getDefencePower());
 
     }
-    public function maxGoalSecondTeam()
+    public function getAttackAdventageOfAwayTeam()
     {
-        $team1 =new Team();
-        $team2 =new Team();
-        return($team2->teamAttackPower() - $team1->teamDefencePower());
+        return($this->getAwayTeam()->getAttackPower() - $this->getHomeTeam()->getDefencePower());
+    }
+
+
+
+
+    public function giveMatchResult()
+    {
+        $attackAdventageOfHomeTeam=$this->getAttackAdventageOfHomeTeam();
+        $attackAdventageOfAwayTeam=$this->getAttackAdventageOfAwayTeam();
+
+        $minhomeTeamGoal=0;
+        $minAwayTeamGoal=0;
+        $maxHomeTeamGoal= 3;
+        $maxAwayTeamGoal= 2;
+
+        if($attackAdventageOfHomeTeam>$attackAdventageOfAwayTeam)
+        {
+           $maxHomeTeamGoal += $attackAdventageOfHomeTeam-$attackAdventageOfAwayTeam;
+        }
+        else
+        {
+            $maxAwayTeamGoal += $attackAdventageOfAwayTeam-$attackAdventageOfHomeTeam;
+        }
+
+        if($maxHomeTeamGoal>10)
+        {
+            $maxHomeTeamGoal=10;
+        }
+        if($maxAwayTeamGoal>10)
+        {
+            $maxAwayTeamGoal=10;
+        }
+
+
+        $goalsOfHomeTeam=rand($minhomeTeamGoal,$maxHomeTeamGoal);
+        $goalsOfAwayTeam= rand($minAwayTeamGoal,$maxAwayTeamGoal);
+
+        $score = array();
+        $score[]=$goalsOfHomeTeam;
+        $score[]=$goalsOfAwayTeam;
+        return($score);
     }
 
 }

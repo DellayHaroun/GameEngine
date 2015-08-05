@@ -1,29 +1,23 @@
 <?php
 require_once 'Player.php';
 require_once 'GameEngine.php';
+
 /**
  * Created by PhpStorm.
  * User: haroun
  * Date: 29/07/15
  * Time: 15:46
  */
-
 class Team
 {
     private $name;
+
     private $players = array();
-
-
-
-
-
 
     public function getName()
     {
         return $this->name;
     }
-
-
 
     public function setName($name)
     {
@@ -37,41 +31,38 @@ class Team
     }
 
 
-
     public function addPlayer(Player $player)
     {
-        $this->players[$player->getId()] = $player ;
+        $this->players[$player->getId()] = $player;
     }
 
 
     public function deletePlayer(Player $player)
     {
-        unset($this->players[$player->getId()] );
+        unset($this->players[$player->getId()]);
     }
 
 
-    public function teamAttackPower()
+    public function getAttackPower()
     {
-        $x =0;
+        $x = 0;
 
-        foreach($this->players as $Player)
-        {
-            $x += $Player->getAttackPower();
+        /** @var Player $player */
+        foreach ($this->players as $player) {
+            $x += $player->getAttackPower();
         }
-        return $x ;
+        return $x;
     }
 
 
-    public function teamDefencePower()
+    public function getDefencePower()
     {
-
-        $x =0;
-
-        foreach($this->players as $Player)
-        {
-            $x += $Player->getDefencePower();
+        $x = 0;
+        /** @var Player $player */
+        foreach ($this->players as $player) {
+            $x += $player->getDefencePower();
         }
-        return $x ;
+        return $x;
     }
 
 
