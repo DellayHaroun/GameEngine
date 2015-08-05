@@ -33,7 +33,14 @@ class Team
 
     public function addPlayer(Player $player)
     {
+        $x=0;
+
         $this->players[$player->getId()] = $player;
+        $x ++ ;
+         if ($x>5 || $x<0)
+         {
+             throw new Exception('Players not Enough or too much');
+         }
     }
 
 

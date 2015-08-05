@@ -8,7 +8,15 @@ class Player
     public function __construct($id,$defencePower,$attackPower)
     {
         $this->id=$id;
+        if($attackPower>100 || $attackPower<0)
+        {
+            throw new Exception('Attack non Coherent');
+        }
         $this->attackPower=$attackPower;
+        if($defencePower>100 || $defencePower<0)
+        {
+            throw new Exception('Defence non Coherent');
+        }
         $this->defencePower=$defencePower;
 
 

@@ -5,7 +5,7 @@ require_once 'GameEngine.php';
 
 
 
-$zidane=new Player(1,100,100);
+$zidane=new Player(1,900,100);
 $ronaldo=new Player(2,20,98);
 $ronaldinho=new Player(3,15,100);
 $cafu=new Player(4,98,25);
@@ -21,7 +21,7 @@ $team1->addPlayer($ronaldinho);
 
 $zidane2=new Player(6,21,98);
 $ronaldo2=new Player(7,21,97);
-$ronaldinho2=new Player(8,16,101);
+$ronaldinho2=new Player(8,16,99);
 $cafu2=new Player(9,99,12);
 $bartez2=new Player(10,98,10);
 
